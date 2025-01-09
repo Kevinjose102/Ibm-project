@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <title>Glidex Gaming Mouse - Precision Redefined</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        /* Updated color scheme for darker theme */
+        :root {
+            --primary-color: #4c1d95;
+            --secondary-color: #2e1065;
+            --accent-color: #7c3aed;
+            --text-light: #f3e8ff;
+            --text-dark: #0f172a;
+            --bg-dark: #030712;
+            --bg-darker: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        /* Navigation styling */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Orbitron", serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 22px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero section with image */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-darker);
+        }
+
+        .hero-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out;
+            text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.5s backwards;
+        }
+
+        /* Product showcase section */
+        .product-showcase {
+            padding: 5rem 2rem;
+            background: var(--bg-darker);
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 1rem;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+        }
+
+        /* Features section */
+        .features {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, var(--bg-darker), var(--bg-dark));
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(124, 58, 237, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(124, 58, 237, 0.15);
+        }
+
+        .feature-icon {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        /* Specifications section */
+        .specs {
+            padding: 5rem 2rem;
+            background: var(--bg-darker);
+        }
+
+        .specs-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .specs-table td, .specs-table th {
+            padding: 1rem;
+            border: 1px solid var(--accent-color);
+        }
+
+        /* CTA section */
+        .cta {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-darker), var(--secondary-color));
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mouse cursor effect */
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        .main-logo{
+            font-family: "Orbitron", serif;
+            font-weight: bold;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">GLIDEX</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#specs">Specs</a>
+                <a href="#cta">Buy Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <!-- Hero background image - Replace the placeholder with your actual image -->
+        <img src="./Product_image.jpg" alt="Gaming Setup" class="hero-image">
+        <div class="hero-content">
+            <h1 class="main-logo">GLIDEX</h1>
+            <p>Precision Engineering Meets Gaming Excellence</p>
+            <a href="#cta" class="button">Experience Now</a>
+        </div>
+    </section>
+
+    <section class="product-showcase">
+        <!-- Main product image - Replace the placeholder with your actual mouse image -->
+        
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <!-- Feature image 1 - Replace with sensor technology image -->
+                
+                <h3>26,000 DPI Sensor</h3>
+                <p>Ultra-precise optical sensor for unmatched accuracy and responsiveness in every game.</p>
+            </div>
+            <div class="feature-card">
+                <!-- Feature image 2 - Replace with ergonomic design image -->
+                
+                <h3>Ergonomic Design</h3>
+                <p>Crafted for extended gaming sessions with premium materials and perfect weight distribution.</p>
+            </div>
+            <div class="feature-card">
+                <!-- Feature image 3 - Replace with RGB lighting image -->
+                <h3>RGB Illumination</h3>
+                <p>16.8 million colors with dynamic effects to match your setup and style.</p>
+            </div>
+            <div class="feature-card">
+                <!-- Feature image 4 - Replace with response time visualization -->
+                
+                <h3>1ms Response Time</h3>
+                <p>Zero lag, instant action. Every millisecond counts in competitive gaming.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs" id="specs">
+        <div class="specs-content">
+            <h2>Technical Specifications</h2>
+            <table class="specs-table">
+                <tr>
+                    <th>Specification</th>
+                    <th>Detail</th>
+                </tr>
+                <tr>
+                    <td>Sensor</td>
+                    <td>Custom PixArt 26K DPI</td>
+                </tr>
+                <tr>
+                    <td>Buttons</td>
+                    <td>8 Programmable</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>89g</td>
+                </tr>
+                <tr>
+                    <td>Battery Life</td>
+                    <td>70 hours</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="cta" id="cta">
+        <!-- CTA background image - Replace the placeholder -->
+        <h2>Ready to Elevate Your Game?</h2>
+        <p>Join the elite players who've already made the switch to Glidex</p>
+        <a href="#" class="button">Order Now - $129.99</a>
+    </section>
+
+    <script>
+        // Smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mouse trail effect
+        const trails = [];
+        const trailCount = 5;
+
+        for (let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            document.body.appendChild(trail);
+            trails.push({
+                element: trail,
+                x: 0,
+                y: 0,
+                delay: i * 2
+            });
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            trails.forEach((trail, index) => {
+                setTimeout(() => {
+                    trail.x = e.clientX;
+                    trail.y = e.clientY;
+                    trail.element.style.left = trail.x - 5 + 'px';
+                    trail.element.style.top = trail.y - 5 + 'px';
+                }, trail.delay);
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
